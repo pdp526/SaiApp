@@ -1,0 +1,45 @@
+
+<nav class="navbar navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"
+      (click)="isCollapse=!isCollapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">Logo</a>
+    </div>
+    <div class="navbar-collapse" id="myNavbar" [ngClass]="isCollapse?'collapse':''">
+      <ul class="nav navbar-nav">
+        <li [ngClass]="navigateLink=='home'?'active':''"><a href="#" (click)="avtiveItem('home')">Home</a></li>
+        <li [ngClass]="navigateLink=='about'?'active':''"><a href="#" (click)="avtiveItem('about')">About</a></li>
+        <li [ngClass]="navigateLink=='gallery'?'active':''"><a href="#" (click)="avtiveItem('gallery')">Gallery</a></li>
+        <li [ngClass]="navigateLink=='contact'?'active':''"><a href="#" (click)="avtiveItem('contact')">Contact</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  
+<div class="container-fluid text-center">    
+  <div class="row content">
+    <div class="col-sm-2 sidenav">
+    </div>
+    <div class="col-sm-8 text-left"> 
+      <app-home *ngIf="navigateLink=='home'"></app-home>
+      <app-gallery *ngIf="navigateLink=='gallery'"></app-gallery>
+      <app-contact *ngIf="navigateLink=='contact'"></app-contact>
+      <app-about *ngIf="navigateLink=='about'"></app-about>
+    </div>
+    <div class="col-sm-2 sidenav">
+     
+    </div>
+  </div>
+</div>
+
+<footer class="container-fluid text-center">
+  <p>Footer Text</p>
+</footer>
